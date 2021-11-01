@@ -78,7 +78,7 @@ This will output a file containing the prediction scores.
 ## Real metagenomic datasets (bacterial, viral, and plasmid) for benchmarking
 We compose three different microbial data sets consisting of bacterial, viral, and plasmid sequences for comprehensively benchmarking OOD detection methods. The bacterial dataset except the Test2018 dataset is downloaded from [genomic_ood](https://github.com/google-research/google-research/tree/master/genomics_ood). The Test2018 bacterial, viral, and plasmid datasets are new. All the datasets contain different lengths of sequences for testing. 
 
-The datasets can be downloaded from [Gooogle Drive](https://drive.google.com/drive/folders/1Kz0kQ_D1VWYqA-GDld783O7H8AzNuHkC). All sequences are in tfrecord format.
+The datasets can be downloaded from [Gooogle Drive](https://drive.google.com/drive/folders/1Kz0kQ_D1VWYqA-GDld783O7H8AzNuHkC?usp=sharing). All sequences are in tfrecord format.
 
 ## Copyright and License Information
 Copyright 2021 University of Southern California
