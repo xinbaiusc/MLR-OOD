@@ -1,5 +1,5 @@
 # MLR-OOD
-MLR-OOD is a a Markov chain based Likelihood Ratio method for Out-Of-Distribution (OOD) detection of genomic sequences. 
+MLR-OOD is a Markov chain based Likelihood Ratio method for Out-Of-Distribution (OOD) detection of genomic sequences. 
 
 ## Installation
 ```
