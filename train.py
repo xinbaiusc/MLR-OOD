@@ -3,7 +3,7 @@
 #
 #     https://github.com/google-research/google-research/tree/master/genomics_ood
 #
-# Copyright 2020 The Google Research Authors and authors of MLR-OOD.
+# Copyright 2021 University of Southern California.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -63,13 +63,13 @@ flags.DEFINE_integer(
     'filter_label', -1,
     ('If only sequences from the class=filter_label are used for training.'
      'if -1, no filter.'))
-flags.DEFINE_string('in_tr_fasta_data', '/tmp/data/before_2011_in_tr/ID_0.fa',
-                    'fasta file of in-distribution training')
+flags.DEFINE_string('in_tr_fasta_data', '/tmp/data/in_tr/ID_0.fa',
+                    'fasta file of in-distribution training sequences')
 flags.DEFINE_integer('in_tr_fasta_data_class', 0,
                     'the ID training class of the input fasta file')
-flags.DEFINE_string('in_tr_data_dir', '/tmp/data/before_2011_in_tr',
+flags.DEFINE_string('in_tr_data_dir', '/tmp/data/in_tr',
                     'data directory of in-distribution training')
-flags.DEFINE_string('out_dir', '/tmp/out_generative',
+flags.DEFINE_string('out_dir', '/tmp/out_training',
                     'Directory where to write log and models.')
 flags.DEFINE_boolean('save_meta', False, 'Save meta graph file for each ckpt.')
 flags.DEFINE_string('master', '', 'TensorFlow master to use.')
@@ -355,7 +355,6 @@ class SeqModel(object):
       x_test.append(out[4])
     return loss_test, loss_total_test, acc_test, y_test, x_test
 
-
 def main(_):
 
   tf.logging.set_verbosity(tf.logging.INFO)
@@ -387,7 +386,7 @@ def main(_):
   
   # create the input tfrecord training data according to the input fasta data
   if not params.in_tr_data_dir.endswith('/'):
-      params.in_tr_data_dir += '/'
+    params.in_tr_data_dir += '/'
   in_tr_tfrecord_file_name = params.in_tr_data_dir + 'in_tr_class_' + str(params.in_tr_fasta_data_class) + '.tfrecord'
   with tf.python_io.TFRecordWriter(in_tr_tfrecord_file_name) as tfwriter:
     with open(params.in_tr_fasta_data) as f:

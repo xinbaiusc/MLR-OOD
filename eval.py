@@ -1,9 +1,9 @@
 # coding=utf-8
-# This code is modified based on generative.py at 
+# This code is modified based on generativ_evale.py at 
 #
 #     https://github.com/google-research/google-research/tree/master/genomics_ood
 #
-# Copyright 2020 The Google Research Authors and authors of MLR-OOD.
+# Copyright 2021 University of Southern California
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -66,19 +66,6 @@ FLAGS = flags.FLAGS
 def list_to_np(list_batch):
   # list_batch is a list of np arrays, each np array is of length batch_size
   return np.stack(list_batch).reshape(-1)
-
-
-def compute_auc(neg, pos, pos_label=1):
-  ys = np.concatenate((np.zeros(len(neg)), np.ones(len(pos))), axis=0)
-  neg = np.array(neg)[np.logical_not(np.isnan(neg))]
-  pos = np.array(pos)[np.logical_not(np.isnan(pos))]
-  scores = np.concatenate((neg, pos), axis=0)
-  auc = roc_auc_score(ys, scores)
-  if pos_label == 1:  # label for pos=1 and label for neg=0
-    return auc
-  else:  # label for pos=0 and label for neg=1
-    return 1 - auc
-
 
 def restore_model_from_ckpt(ckpt_dir, ckpt_file):
   """restore model from ckpt file."""

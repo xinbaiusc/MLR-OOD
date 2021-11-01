@@ -3,6 +3,7 @@
 # Author            :Xin Bai
 # Contact           :xinbai@usc.edu
 # Version           :1.0.0
+# Copyright         :2021 University of Southern California
 
 import os, sys, optparse, argparse
 import numpy as np
@@ -114,15 +115,15 @@ def write_pred_result(max_lstm, mc_neg_log_likelihood, output_path):
     np.savetxt(output_path + "testscore.txt", test_score)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description = 'Example: python mlr_ood.py -i testFastaFile -o outputPath -m maxLstmFile -l trueLabelFile -L 250')
+    parser = argparse.ArgumentParser(description = 'Example: python mlr_ood.py -i testFastaFile -o outputPath -m maxLstmFile -l trueLabelFile -L0 250 -L1 1000')
     parser.add_argument('-i', '--data', dest = "testing_fasta_sequence", help = "A full path to the input testing sequence file")
     parser.add_argument('-o', '--output', dest = "output_path", help = "The path to output the prediction results")
     parser.add_argument('-f', '--lstm', dest = "lstm_file", help = "A full path to the text file storing the path to the LSTM likelihood files of each ID training class output by the eval step")
-    parser.add_argument('-l', '--label', dest = "true_label_file", help = "A full path to the binary true label file (1 as ID, 0 as OOD)")
+    parser.add_argument('-l', '--label', dest = "true_label_file", help = "(optional) A full path to the binary true label file (1 as ID, 0 as OOD)")
     parser.add_argument('-L1', '--telen', dest = "testing_seq_len", help = "The sequence length for all input testing sequences")
     parser.add_argument('-L0', '--trlen', dest = "training_seq_len", help = "The sequence length for all training sequences")
-    parser.add_argument('-x', '--order', dest = "maximum_possible_order", default = 3, help = "The maximum possible MC order")
-    parser.add_argument('-t', '--thread', dest = "num_threads", default = 1, help = "The number of threads")
+    parser.add_argument('-x', '--order', dest = "maximum_possible_order", default = 3, help = "The maximum possible MC order (default 3)")
+    parser.add_argument('-t', '--thread', dest = "num_threads", default = 1, help = "The number of threads (default 1)")
     args = parser.parse_args()
     seqfile = args.testing_fasta_sequence
     testing_seq_len = int(args.testing_seq_len)
