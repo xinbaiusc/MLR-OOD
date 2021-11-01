@@ -57,8 +57,8 @@ The final step is to calculate the prediction scores of MLR-OOD for all the test
 -o, --output          The path to output the prediction results
 -f, --lstm            A full path to the text file storing the path to the LSTM likelihood files of each ID training class output by the eval step
 -l, --label           (optional) A full path to the binary true label file (1 as ID, 0 as OOD)
--L0, --trlen          The sequence length for all input testing sequences
--L1, --telen          The sequence length for all input training sequences
+-L0, --trlen          The sequence length for all input training sequences
+-L1, --telen          The sequence length for all input testing sequences
 -x, --order           The maximum possible MC order (default 3)
 -t, --thread          The number of threads (default 1)
 ```
