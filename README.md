@@ -8,7 +8,7 @@ cd MLR-OOD
 ```
 
 ## Prerequisites
-To use MLR-OOD, two software packages: [genomic_ood](https://github.com/google-research/google-research/tree/master/genomics_ood) and [Afann](https://github.com/GeniusTang/Afann) are required as prerequisites. Please download these two software packages under the directory of ./MLR-OOD. Please refer to the corresponding GitHub pages for downloading these two software packages.
+To use MLR-OOD, two software packages: [genomic_ood](https://github.com/google-research/google-research/tree/master/genomics_ood) and [Afann](https://github.com/GeniusTang/Afann) are required as prerequisites. Please download and install these two software packages under the directory of ./MLR-OOD. Please refer to the corresponding GitHub pages for downloading these two software packages.
 
 ## Usage
 The MLR-OOD method consists of three steps: training generative models based on LSTM for sequences in each in-distribution (ID) class, evaluation of the training models and calculating the likelihoods, and calculation of the prediction scores and prediction accuracy. The train.py and eval.py scripts for the first two steps are modified from scripts in [genomic_ood](https://github.com/google-research/google-research/tree/master/genomics_ood).
