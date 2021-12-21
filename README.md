@@ -44,7 +44,7 @@ python3 -m eval \
 --training_seq_len=250 \
 --out_test_likelihood_file=./test_data/lstm_ll_class0.txt
 ```
-Here `--model_dir_frgd` specifies the model directory containing the checkpoints trained from step 1. `n_samples` specifies the number of testing sequences. `--ckpt_step` specifies the number of epoches you would like to use. `test_fasta_data` specifies the directory containing the testing sequence data in fasta format. `--testing_seq_len` specifies the directory to store the tfrecord format data converted from the fasta data. `--out_test_likelihood_file` specifies the file name of the output likelihood vector. 
+Here `--model_dir_frgd` specifies the model directory containing the checkpoints trained from step 1. `n_samples` specifies the number of testing sequences multiplies the ratio of (testing_seq_len / training_seq_len). `--ckpt_step` specifies the number of epoches you would like to use. `test_fasta_data` specifies the directory containing the testing sequence data in fasta format. `--testing_seq_len` specifies the directory to store the tfrecord format data converted from the fasta data. `--out_test_likelihood_file` specifies the file name of the output likelihood vector. 
 
 Then you can follow the same steps for other ID training classes.
 
