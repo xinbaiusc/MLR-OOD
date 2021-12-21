@@ -124,11 +124,11 @@ def testing_fasta_to_tfrecord(fasta_file, test_data_dir, training_seq_len, testi
           if len(line) != testing_seq_len:
             raise ValueError('Each sequence must have the same length as the inputtesting sequence length!')
           numeric_line = [dict[x] if x in dict else x for x in line]
-          str_numeric_line = ' '.join(numeric_line)
           for idx in range(testing_seq_len // training_seq_len):
-            seq = str_numeric_line[idx * training_seq_len : (idx + 1) * training_seq_len]
+            seq = numeric_line[idx * training_seq_len : (idx + 1) * training_seq_len]
+            str_seq = ' '.join(seq)
             data_record = {
-              'str_data': seq,
+              'str_data': str_seq,
               # we use -1 for the label of all testing sequences, in reality, the user may have knowledge on the testing sequence labels, but we do not expect our users to have that knowledge.
               'int_data': -1
             }
